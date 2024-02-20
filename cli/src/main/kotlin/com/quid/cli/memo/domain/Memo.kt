@@ -1,6 +1,7 @@
 package com.quid.cli.memo.domain
 
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 data class Memo(
     val id: Long? = null,
@@ -11,11 +12,12 @@ data class Memo(
     constructor(author: String, description: String) : this(null, author, description)
 
     override fun toString() = """
-        |Memo
+        |   Memo #$id
         |
-        |   $description,
+        |   $description
         |   
-        |   $regDate
+        |   by $author,
+        |   ${regDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))}
         |
     """.trimMargin()
 }

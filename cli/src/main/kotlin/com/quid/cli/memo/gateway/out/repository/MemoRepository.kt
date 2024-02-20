@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository
 
 interface MemoRepository {
     fun save(memo: Memo): Memo
+    fun findAll(): List<Memo>
 
     @Repository
     class MemoRepositoryImpl(
@@ -16,5 +17,9 @@ interface MemoRepository {
             MemoEntity(memo)
                 .let { memoJpaRepository.save(it) }
                 .toMemo()
+
+        override fun findAll(): List<Memo> =
+            memoJpaRepository.findAll()
+                .map { it.toMemo() }
     }
 }
