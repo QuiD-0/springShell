@@ -14,7 +14,7 @@ interface WriteMemo {
         private val memoRepository: MemoRepository
     ) : WriteMemo {
 
-        @Value("\${memo.user}")
+        @Value("\${user}")
         private lateinit var user: String
 
         override fun invoke(description: String) = Memo(user, description).let { memoRepository.save(it) }
