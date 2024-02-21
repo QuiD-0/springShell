@@ -16,4 +16,7 @@ class MemoCli(
 
     @ShellMethod("memo list", group = "memo", key = ["memo -l", "memo list", "memo ls"])
     fun memoList() = findMemo.list().let { MemoListResponse(it).message() }
+
+    @ShellMethod("read memo", group = "memo", key = ["memo -r", "memo read"])
+    fun memoRead(id: String) = findMemo.byId(id.toLong())?:"Memo Not Found"
 }
