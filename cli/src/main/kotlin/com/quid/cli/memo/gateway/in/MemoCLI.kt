@@ -8,7 +8,7 @@ import org.springframework.shell.standard.ShellComponent
 import org.springframework.shell.standard.ShellMethod
 
 @ShellComponent
-class MemoCli(
+class MemoCLI(
     private val writeMemo: WriteMemo,
     private val deleteMemo: DeleteMemo,
     private val findMemo: FindMemo
